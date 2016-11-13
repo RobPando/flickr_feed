@@ -1,0 +1,10 @@
+<h1>Flickr Photo Feed</h1>
+<%= form_for '/', method: 'get' do %>
+  <%= label_tag 'User ID:' %>
+  <%= text_field_tag :user_id %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
+<%= cache ('flickr_sidebar') do %>
+  <%= render_flickr_sidebar_widget(@user_id) %>
+<% end %>
